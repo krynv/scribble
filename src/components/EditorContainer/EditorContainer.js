@@ -7,7 +7,9 @@ const highlightPlugin = createHighlightPlugin();
 
 class EditorContainer extends React.Component {
     constructor(props) {
+
         super(props);
+
         this.state = {
             editorState: EditorState.createEmpty()
         };
