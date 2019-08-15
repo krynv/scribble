@@ -91,28 +91,28 @@ class EditorContainer extends React.Component {
     render() {
         return (
             <div className="editorContainer" onClick={this.showWhereClicked}>
-                {/* <button onClick={this.onUnderlineClick}>U</button>
-                <button onClick={this.onBoldClick}>
-                    <b>B</b>
-                </button>
-                <button onClick={this.onItalicClick}>
-                    <em>I</em>
-                </button>
-                <button onClick={this.onStrikeThroughClick}>abc</button>
-                <button onClick={this.onHighlight}>
-                    <span style={{ background: "yellow", padding: "0.3em" }}>H</span>
-                </button>
+                <div style={this.state.placedDiv}>
+                    <button onClick={this.onUnderlineClick}>U</button>
+                    <button onClick={this.onBoldClick}>
+                        <b>B</b>
+                    </button>
+                    <button onClick={this.onItalicClick}>
+                        <em>I</em>
+                    </button>
+                    <button onClick={this.onStrikeThroughClick}>abc</button>
+                    <button onClick={this.onHighlight}>
+                        <span style={{ background: "yellow", padding: "0.3em" }}>H</span>
+                    </button>
 
-                <div style={this.style}>
-                    <Editor
-                        editorState={this.state.editorState}
-                        handleKeyCommand={this.handleKeyCommand}
-                        plugins={this.plugins}
-                        onChange={this.onChange}
-                    />
-                </div> */}
-
-                <div style={this.state.placedDiv}></div>
+                    <div style={this.style}>
+                        <Editor
+                            editorState={this.state.editorState}
+                            handleKeyCommand={this.handleKeyCommand}
+                            plugins={this.plugins}
+                            onChange={this.onChange}
+                        />
+                    </div>
+                </div>
             </div>
         );
     }
