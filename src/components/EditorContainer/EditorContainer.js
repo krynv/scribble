@@ -2,6 +2,7 @@ import React from "react";
 import { EditorState, RichUtils } from "draft-js";
 import Editor from "draft-js-plugins-editor";
 import createHighlightPlugin from "../plugins/highlightPlugin";
+import './EditorContainer.css';
 
 const highlightPlugin = createHighlightPlugin();
 
@@ -11,19 +12,28 @@ class EditorContainer extends React.Component {
         super(props);
 
         this.state = {
+            placedDiv: {
+                top: '-100px',
+                left: '-100px', // hide the div first
+            },
             editorState: EditorState.createEmpty()
         };
 
         this.plugins = [highlightPlugin];
+
+
+        this.style = {
+            height: '100%',
+        }
     }
 
-    onChange = editorState => {
+    onChange = (editorState) => {
         this.setState({
             editorState
         });
     };
 
-    handleKeyCommand = command => {
+    handleKeyCommand = (command) => {
         const newState = RichUtils.handleKeyCommand(
             this.state.editorState,
             command
@@ -63,10 +73,25 @@ class EditorContainer extends React.Component {
         );
     };
 
+    showWhereClicked = (e) => {
+        console.log(`you have clicked X:${e.clientX} Y:${e.clientY}`);
+
+        this.setState({
+            placedDiv: {
+                top: `${e.clientY}px`,
+                left: `${e.clientX}px`,
+                width: '100px',
+                height: '100px',
+                backgroundColor: 'green',
+                position: 'absolute',
+            }
+        })
+    }
+
     render() {
         return (
-            <div>
-                <button onClick={this.onUnderlineClick}>U</button>
+            <div className="editorContainer" onClick={this.showWhereClicked}>
+                {/* <button onClick={this.onUnderlineClick}>U</button>
                 <button onClick={this.onBoldClick}>
                     <b>B</b>
                 </button>
@@ -78,14 +103,16 @@ class EditorContainer extends React.Component {
                     <span style={{ background: "yellow", padding: "0.3em" }}>H</span>
                 </button>
 
-                <div>
+                <div style={this.style}>
                     <Editor
                         editorState={this.state.editorState}
                         handleKeyCommand={this.handleKeyCommand}
                         plugins={this.plugins}
                         onChange={this.onChange}
                     />
-                </div>
+                </div> */}
+
+                <div style={this.state.placedDiv}></div>
             </div>
         );
     }

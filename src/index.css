@@ -16,3 +16,7 @@ html {
   background-color: #111111;
   color: whitesmoke;
 }
+
+html, body, #root {
+    height: 100%;
+}
