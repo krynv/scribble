@@ -38,6 +38,7 @@ class EditorContainer extends React.Component {
             this.state.editorState,
             command
         );
+
         if (newState) {
             this.onChange(newState);
             return "handled";
@@ -46,9 +47,7 @@ class EditorContainer extends React.Component {
     };
 
     onUnderlineClick = () => {
-        this.onChange(
-            RichUtils.toggleInlineStyle(this.state.editorState, "UNDERLINE")
-        );
+        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "UNDERLINE"));
     };
 
     onBoldClick = () => {
@@ -56,21 +55,15 @@ class EditorContainer extends React.Component {
     };
 
     onItalicClick = () => {
-        this.onChange(
-            RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC")
-        );
+        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC"));
     };
 
     onStrikeThroughClick = () => {
-        this.onChange(
-            RichUtils.toggleInlineStyle(this.state.editorState, "STRIKETHROUGH")
-        );
+        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "STRIKETHROUGH"));
     };
 
     onHighlight = () => {
-        this.onChange(
-            RichUtils.toggleInlineStyle(this.state.editorState, "HIGHLIGHT")
-        );
+        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, "HIGHLIGHT"));
     };
 
     showWhereClicked = (e) => {
@@ -80,8 +73,8 @@ class EditorContainer extends React.Component {
             placedDiv: {
                 top: `${e.clientY}px`,
                 left: `${e.clientX}px`,
-                width: '100px',
-                height: '100px',
+                width: '300px',
+                height: '200px',
                 backgroundColor: 'green',
                 position: 'absolute',
             }
